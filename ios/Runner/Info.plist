@@ -20,6 +20,12 @@
 	<string>Allow places to use the device camera</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Allow places to use the device camera</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow places to use the device location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Allow places to use the device location</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow places to use the device location</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>

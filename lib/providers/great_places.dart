@@ -21,12 +21,15 @@ class GreatPlace with ChangeNotifier {
 
   UnmodifiableListView<Place> get items => UnmodifiableListView(_items);
 
-  void addPlace(String title, File image) {
+  void addPlace(String title, File image, double lat, double lng) {
     final newPlace = Place(
       id: items.length + 1,
       image: image,
       title: title,
-      location: null,
+      location: PlaceLocation(
+        latitude: lat,
+        longitude: lng,
+      ),
     );
     _items.add(newPlace);
     notifyListeners();
