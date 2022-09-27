@@ -9,8 +9,7 @@ class PlacesListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final items = context.read<GreatPlace>().items;
-    print(items);
+    final List<Place> items = context.watch<GreatPlace>().items;
     return Scaffold(
         appBar: AppBar(
           title: const Text('Your Places'),
@@ -23,8 +22,21 @@ class PlacesListScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: const Center(
-          child: CircularProgressIndicator(),
-        ));
+        body: items.isNotEmpty
+            ? ListView.builder(
+                itemBuilder: (ctx, i) => ListTile(
+                  title: Text(items[i].title),
+                  leading: CircleAvatar(
+                    backgroundImage: FileImage(items[i].image),
+                  ),
+                  onTap: () {
+                    //TODO: GO to detilas screen
+                  },
+                ),
+                itemCount: items.length,
+              )
+            : const Center(
+                child: CircularProgressIndicator(),
+              ));
   }
 }

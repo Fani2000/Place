@@ -36,6 +36,10 @@ dependencies:
   latlong2: ^0.8.1
   provider: ^6.0.3
   flutter_map: ^2.2.0
+  image_picker: ^0.8.5+3
+  path_provider: ^2.0.11
+  path: ^1.8.1
+  fluttertoast: ^8.0.9
 
 dev_dependencies:
   flutter_test:
