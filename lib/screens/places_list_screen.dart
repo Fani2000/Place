@@ -9,34 +9,36 @@ class PlacesListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<GreatPlace>().fetchAndSetPlaces();
     final List<Place> items = context.watch<GreatPlace>().items;
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Your Places'),
-          actions: [
-            IconButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(AddPlaceScreen.routeName);
-              },
-              icon: const Icon(Icons.add),
-            ),
-          ],
-        ),
-        body: items.isNotEmpty
-            ? ListView.builder(
-                itemBuilder: (ctx, i) => ListTile(
-                  title: Text(items[i].title),
-                  leading: CircleAvatar(
-                    backgroundImage: FileImage(items[i].image),
-                  ),
-                  onTap: () {
-                    //TODO: GO to detilas screen
-                  },
+      appBar: AppBar(
+        title: const Text('Your Places'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(AddPlaceScreen.routeName);
+            },
+            icon: const Icon(Icons.add),
+          ),
+        ],
+      ),
+      body: items.isNotEmpty
+          ? ListView.builder(
+              itemBuilder: (ctx, i) => ListTile(
+                title: Text(items[i].title),
+                leading: CircleAvatar(
+                  backgroundImage: FileImage(items[i].image),
                 ),
-                itemCount: items.length,
-              )
-            : const Center(
-                child: CircularProgressIndicator(),
-              ));
+                onTap: () {
+                  //TODO: GO to detilas screen
+                },
+              ),
+              itemCount: items.length,
+            )
+          : const Center(
+              child: CircularProgressIndicator(),
+            ),
+    );
   }
 }

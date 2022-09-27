@@ -36,8 +36,6 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
       );
       return;
     }
-    print(pickedImage!.path);
-    print(_titleController.text);
 
     Provider.of<GreatPlace>(context, listen: false).addPlace(
       _titleController.text,
