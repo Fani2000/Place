@@ -1,16 +1,26 @@
 # places
 
-A new Flutter project.
+## Capture your favorite places on your device
 
-## Getting Started
+### **Features**
 
-This project is a starting point for a Flutter application.
+- Add Your Favorite Place
+- View All Your Favorite Place
+- Select Your Favorite Place from the map
 
-A few resources to get you started if this is your first Flutter project:
+### Features to Come:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- UI Re-Design
+- Add Place Details like address, description, and type
+- See All Favorite places Map
+-
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Technologies:
+
+1. **Flutter**
+2. **Dart**
+3. **Provider**
+4. **Sqflite**
+5. **Location**
+6. **Flutter_map**
+7. **Path and Path_Provider**
