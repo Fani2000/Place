@@ -7,7 +7,7 @@ class DBHelper {
     return sql.openDatabase(
       path.join(dbPath, 'places.db'),
       onCreate: (db, version) async => await db.execute(
-        'CREATE TABLE $table (id INTEGER PRIMARY KEY,title TEXT, image TEXT)',
+        'CREATE TABLE $table (id INTEGER PRIMARY KEY,title TEXT, image TEXT, latitude DOUBLE, longitude DOUBLE)',
       ),
       version: 1,
     );

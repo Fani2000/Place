@@ -21,6 +21,10 @@ class GreatPlace with ChangeNotifier {
 
   UnmodifiableListView<Place> get items => UnmodifiableListView(_items);
 
+  Place fndById(int id) {
+    return _items.firstWhere((place) => place.id == id);
+  }
+
   void addPlace(String title, File image, double lat, double lng) {
     final newPlace = Place(
       id: items.length + 1,
@@ -38,7 +42,9 @@ class GreatPlace with ChangeNotifier {
       {
         "id": newPlace.id,
         "title": newPlace.title,
-        "image": newPlace.image.path
+        "image": newPlace.image.path,
+        "latitude": newPlace.location.latitude,
+        "longitude": newPlace.location.longitude,
       },
     );
   }
@@ -51,7 +57,10 @@ class GreatPlace with ChangeNotifier {
           (item) => Place(
             id: item["id"],
             title: item['title'],
-            location: null,
+            location: PlaceLocation(
+              latitude: item['latitude'],
+              longitude: item['longitude'],
+            ),
             image: File(item['image']),
           ),
         )

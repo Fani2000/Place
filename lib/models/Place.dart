@@ -16,12 +16,12 @@ class Place {
   final int id;
   final String title;
   final File image;
-  final PlaceLocation? location;
+  final PlaceLocation location;
 
   Place({
     required this.id,
     required this.title,
     required this.image,
-    this.location,
+    required this.location,
   });
 }
