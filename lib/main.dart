@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:places/providers/great_places.dart';
 import 'package:places/screens/Map.dart';
-// import 'screens/Map.dart'
+import 'package:places/screens/add_places_screen.dart';
+import 'package:places/screens/places_list_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => GreatPlace(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,37 +24,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height * 0.9;
-    double width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Places"),
-      ),
-      body: SizedBox(
-          height: height,
-          width: width,
-          child: Stack(
-            children: [
-              Positioned(
-                bottom: 10.0,
-                right: 10.0,
-                child: FloatingActionButton(
-                  onPressed: () {},
-                  child: const Icon(Icons.add),
-                ),
-              )
-            ],
-          )),
+      home: const PlacesListScreen(),
+      routes: {
+        AddPlaceScreen.routeName: (ctx) => const AddPlaceScreen(),
+      },
     );
   }
 }
